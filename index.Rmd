@@ -1,0 +1,30 @@
+---
+title: "City forest nearby my place"
+author: "Jelena Erdmann"
+date: "4/21/2020"
+output:
+  md_document:
+    variant: markdown_github
+---
+
+```{r, warning= FALSE, message=FALSE, echo = FALSE}
+#install.packages("leaflet")
+library(leaflet)
+```
+
+
+
+```{r, echo = FALSE}
+animal <- makeIcon(
+iconUrl = "https://www.netclipart.com/pp/m/9-99330_acorn-forest-animal-free-vector-graphic-on-.png",
+iconWidth = 31*215/230, iconHeight = 31,
+iconAnchorX = 31*215/230/2, iconAnchorY = 16
+)
+my_map <- leaflet() %>%
+      addTiles() %>%
+      addMarkers(lat=52.391845, lng=9.771388,
+                 popup="Give me nuts!", 
+                 icon = animal)
+my_map
+
+```
